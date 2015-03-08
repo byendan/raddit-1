@@ -16,4 +16,5 @@ gem 'spring',        group: :development
 gem 'devise', '~> 3.4.1'
 gem 'haml-rails', '~> 0.8.2'
 gem 'haml', '~> 4.0.6'
+gem 'bootstrap-sass', '~> 3.3.3'
 
