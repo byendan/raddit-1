@@ -1,4 +1,5 @@
 = form_for(@link) do |f|
+  .form-group
   - if @link.errors.any?
     #error_explanation
       %h2
@@ -7,13 +8,11 @@
       %ul
         - @link.errors.full_messages.each do |message|
           %li= message
-  .field
+  .form-group
     = f.label :title
-    %br/
-    = f.text_field :title
-  .field
+    = f.text_field :title, class: 'form-control'
+  .form-group
     = f.label :url
-    %br/
-    = f.text_field :url
-  .actions
-    = f.submit
+    = f.text_field :url, class: 'form-control'
+  .form-group
+    = f.submit "Submit", class: 'btn btn-primary'
