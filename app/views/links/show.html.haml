@@ -1,5 +1,6 @@
 %p#notice= notice
 #main_content.content-container
+  = link_to 'Back', links_path
   #content.col-md-9.center-block.lead
     %strong Title:
     = @link.title
@@ -19,6 +20,18 @@
         =@link.get_downvotes.size
     %p
     %br
+    -if @link.user == current_user
       = link_to 'Edit', edit_link_path(@link)
-      |
-      = link_to 'Back', links_path
+
+  %h3.comments_title
+    = "#{@link.comments.count} Comments"
+
+  -if user_signed_in?
+    #comments
+      =render :partial => @link.comments
+      = simple_form_for [@link, Comment.new] do |f|
+        = f.input :body, html: {class: 'form-control'}, label: false
+        %br
+        = f.button :submit, 'Add Comment', class: 'btn btn-primary'
+
+
