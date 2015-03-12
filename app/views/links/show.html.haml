@@ -18,10 +18,8 @@
         %span.glyphicon.glyphicon-chevron-down
         Downvote
         =@link.get_downvotes.size
-    %p
-    %br
     -if @link.user == current_user
-      = link_to 'Edit', edit_link_path(@link)
+      =link_to 'Edit My Link', edit_link_path(@link), class: 'btn btn-info btn-sm'
 
   %h3.comments_title
     = "#{@link.comments.count} Comments"

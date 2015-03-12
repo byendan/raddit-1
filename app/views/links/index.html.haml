@@ -16,3 +16,5 @@
         %span.glyphicon.glyphicon-chevron-down
         Downvote
         =link.get_downvotes.size
+      =link_to link_path(link), class: 'btn btn-default btn-sm' do
+        #{link.comments.count} Comments
